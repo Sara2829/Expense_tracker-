@@ -39,7 +39,7 @@ app.get("/", (req, res) => {
   res.send("Expense Tracker API is running...");
 });
 
-// Error handling
+
 app.use((err, req, res, next) => {
   res.status(res.statusCode || 500).json({
     message: err.message,
@@ -47,6 +47,6 @@ app.use((err, req, res, next) => {
 });
 
 
-// Start server
+
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
