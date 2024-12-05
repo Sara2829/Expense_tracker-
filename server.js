@@ -3,19 +3,19 @@ const dotenv = require("dotenv");
 const mongoose = require("mongoose");
 const cors = require("cors");
 
-// Import routes
+
 const userRoutes = require("./routes/userRoutes");
 const expenseRoutes = require("./routes/expenseRoutes");
 
-// Initialize app
+
 const app = express();
 dotenv.config();
 
-// Middleware
+
 app.use(express.json());
 app.use(cors());
 
-// MongoDB connection
+
 const connectDB = async () => {
   try {
     await mongoose.connect(process.env.MONGO_URI, {
@@ -30,11 +30,11 @@ const connectDB = async () => {
 };
 connectDB();
 
-// Routes
+
 app.use("/api/users", userRoutes);
 app.use("/api/expenses", expenseRoutes);
 
-// Test route
+
 app.get("/", (req, res) => {
   res.send("Expense Tracker API is running...");
 });

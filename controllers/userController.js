@@ -1,6 +1,6 @@
 const User = require("../models/Users");
 
-// Register user
+
 const registerUser = async (req, res) => {
   const { name, email, password } = req.body;
 
@@ -17,7 +17,7 @@ const registerUser = async (req, res) => {
   }
 };
 
-// Login user
+
 const loginUser = async (req, res) => {
   const { email, password } = req.body;
 
@@ -34,11 +34,11 @@ const loginUser = async (req, res) => {
 };
 
 
-// Get all users
+
 const getAllUsers = async (req, res) => {
   try {
-    const users = await User.find(); // Fetch all users from the database
-    res.json(users); // Respond with the list of users
+    const users = await User.find(); 
+    res.json(users); 
   } catch (error) {
     res.status(500).json({ message: error.message });
   }

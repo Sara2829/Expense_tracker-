@@ -9,14 +9,9 @@ const {
 const router = express.Router();
 
 
-router.use((req, res, next) => {
-  req.user = { _id: "dummyUserIdForNow" }; 
-  next();
-});
-
-router.get("/", getExpenses);
-router.post("/", createExpense);
-router.put("/:id", updateExpense);
-router.delete("/:id", deleteExpense);
+router.get("/:userId", getExpenses); 
+router.post("/:userId", createExpense); 
+router.put("/:userId/:id", updateExpense); 
+router.delete("/:userId/:id", deleteExpense); 
 
 module.exports = router;
