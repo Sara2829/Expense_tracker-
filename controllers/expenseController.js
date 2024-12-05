@@ -2,7 +2,7 @@ const Expense = require("../models/Expense");
 
 
 const getExpenses = async (req, res) => {
-  const { userId } = req.params; // Extract userId from the route
+  const { userId } = req.params;
   try {
     const expenses = await Expense.find({ user: userId });
     res.json(expenses);
@@ -18,7 +18,7 @@ const createExpense = async (req, res) => {
 
   try {
     const expense = await Expense.create({
-      user: userId, // Associate expense with the user
+      user: userId, 
       title,
       amount,
       date,
